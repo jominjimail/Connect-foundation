@@ -1,0 +1,23 @@
+{
+  "name": "day5-challenge",
+  "version": "1.0.0",
+  "description": "챌린지 day5 문제 해결 저장소",
+  "main": "b.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jominjimail/day5-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jominjimail/day5-challenge/issues"
+  },
+  "homepage": "https://github.com/jominjimail/day5-challenge#readme",
+  "dependencies": {
+    "ladash": "^1.2.0",
+    "lodash": "^4.17.15"
+  }
+}
