@@ -1,31 +1,32 @@
 const URL = require('./URL.js');
 
 var url = new URL("http://user_name:pass-word@boostcamp.connect-foundation.or.kr:2019/first/second/last?query=ab&param=12");
+console.log(url.result);
 
-//console.log(url);
-//var u = new URL("http://");
-//var zumurl = new URL("http://admin@zum.com/#!/home?query=zum");
-// console.log(zumurl);
+var u = new URL("http://");
+var zumurl = new URL("http://admin@zum.com/#!/home?query=zum");
+console.log(zumurl);
 
-//var naverurl = new URL("http://m.naver.com");
-// console.log(naverurl);
+var naverurl = new URL("http://m.naver.com");
+console.log(naverurl);
 
-//var url1 = new URL("http://admin@zum.com/#!/home?query=zum");
+var url1 = new URL("http://admin@zum.com/#!/home?query=zum");
 //console.log(zumurl.isEqual(url1));
-// console.log(url1);
+console.log(url1);
 
-//var url2 = new URL("http://admin@zum.com/#!/home");
+var url2 = new URL("http://admin@zum.com/#!/home");
 //console.log(zumurl.isEqual(url2));
-// console.log(url2);
+console.log(url2);
 
-//var url3 = new URL("http://admin@zum.com/?param=zum");
+var url3 = new URL("http://admin@zum.com/?param=zum");
 //console.log(zumurl.isEqual(url3));
-// console.log(url3);
+console.log(url3);
 
-
-// var url4 = new URL("http://zum.com/#!/home");
-//console.log(zumurl.isEqual(url4));
-// console.log(url4);
+try{
+    var url4 = new URL("zum.com/#!/home");
+}catch(e){
+    console.log(e);
+}
 
 // url.appendPathComponent("basecamp");
 // console.log(url);
