@@ -1,0 +1,22 @@
+{
+  "name": "day12-challenge",
+  "version": "1.0.0",
+  "description": "챌린지 day12 문제 해결 저장소",
+  "main": "step12.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jominjimail/day12-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jominjimail/day12-challenge/issues"
+  },
+  "homepage": "https://github.com/jominjimail/day12-challenge#readme",
+  "dependencies": {
+    "canvas": "^2.5.0"
+  }
+}

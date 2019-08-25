@@ -1,0 +1,6 @@
+[{"name": "readme1", "status" : "Untracked", "repo" : "hello", "timestamp": "2019","commitTime":""},
+    {"name": "readme2", "status" : "Untracked", "repo" : "hello", "timestamp": "2019","commitTime":""},
+    {"name": "readme3", "status" : "Untracked", "repo" : "what", "timestamp": "2019","commitTime":""},
+    {"name": "readme4", "status" : "Staged", "repo" : "hello", "timestamp": "2019","commitTime":""},
+    {"name": "readme5", "status" : "Modified", "repo" : "hello", "timestamp": "2019","commitTime":""},
+    {"name": "readme6", "status" : "Unmodified", "repo" : "hello", "timestamp": "2019","commitTime":""}]

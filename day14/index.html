@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+        <title>카페</title>
+
+        <script>
+                const roastingTime = {
+                    coffe1 : 1000,
+                    coffe2 : 2000,
+                    coffe3 : 3000
+                }
+                function myFunction() {
+                    var workers = document.getElementById("workers").value;
+                    var coffe1 = document.getElementById("coffe1").value;
+                    var coffe2 = document.getElementById("coffe2").value;
+                    var coffe3 = document.getElementById("coffe3").value;
+                    var Manager = new Worker('./manager.js');
+                    Manager.onmessage = function(e){
+                        let msg = e.data.result;
+                        console.log(msg);
+                        Manager.terminate();
+                    }
+                    Manager.postMessage([workers,coffe1,coffe2,coffe3]);
+                }
+                
+        </script>
+  <head>
+    
+  </head>
+
+  
+
+  <body>
+        <div>
+            <label for="coffe1">바리스타 인원:</label>
+            <input type="text" id="workers" name="workers"/>
+        </div>
+        <p id="demo"></p>
+        <div>
+            <label for="coffe1">아메리카노:</label>
+            <input type="text" id="coffe1" name="coffe_one"/>
+        </div>
+        <div>
+            <label for="coffe2">카페라떼:</label>
+            <input type="text" id="coffe2" name="coffe_two"/>
+        </div>
+        <div>
+            <label for="coffe3">프라포치노:</label>
+            <input type="text" id="coffe3" name="coffe_three"/>
+        </div>
+        <button onclick="myFunction()">주문하기</button>
+
+  </body>
+</html>
+

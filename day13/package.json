@@ -1,0 +1,22 @@
+{
+  "name": "day13-challenge",
+  "version": "1.0.0",
+  "description": "챌린지 day13 문제 해결 저장소",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jominjimail/day13-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jominjimail/day13-challenge/issues"
+  },
+  "homepage": "https://github.com/jominjimail/day13-challenge#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
