@@ -1,14 +1,3 @@
-//url.host = "boostcamp.connect-foundation.or.kr"
-//url.lastPathComponent = "last"
-//url.pathComponents = ["/", "first", "second", "last"]
-//url.port = 2019
-//url.query = "query=ab&param=12"
-//url.scheme = "http"
-//url.isFileURL = false
-//url.user = "user_name"
-//url.password = "pass-word"
-//url.absoluteString = "http://user_name:pass-word@boostcamp.connect-foundation.or.kr:2019/first/second/last?query=ab&param=12"
-
 const equal_state = {
     1 : '1 : scheme부터 username, password, host:port까지 같은 상태',
     2 : '2 : scheme과 host:port만 같은 상태 (username, password 제외)',
@@ -25,8 +14,7 @@ class URL {
     parseUrl(url){
         const regex = /^(([^:\/?#]+:)?(\/\/((([^\/?#:]*)?(?:\:([^\/?#:]*))?\@)?([^\/?#:]*)(?::([^\/?#:]*))?)))(([^?]*)(?:\?([^#]*))?)/gm;
         var matches = regex.exec(url);
-        console.log(typeof matches);
-        console.log(matches);
+       
         if(matches === null){
             throw "invalid url parameter";
         }
@@ -36,7 +24,7 @@ class URL {
             username: matches[6] || "",            
             password: matches[7] || "",                
             hostname : matches[8] || "", 
-            port: matches[9] || "",   
+            port: matches[9] ? matches[9] : "80",    
             path: matches[10] || "",                
             pathname: matches[11] || (matches[8] ? "/" : ""),
             query: matches[12] || "",              
@@ -44,6 +32,7 @@ class URL {
             auth : matches[5] || "",
             
         };
+        
         return r;
 
     }
@@ -51,7 +40,7 @@ class URL {
         return this.result.hostname;
     }
     get port(){
-        return thie.result.port;
+        return this.result.port;
     }
 
 }
