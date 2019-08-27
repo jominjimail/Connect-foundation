@@ -15,20 +15,19 @@ URI/URL 규격과 HTTP 프로토콜 규격을 이해하면 웹 브라우저가 �
 
 ### URL.js
 
-url 을 파싱하기 위해 정규 표현식을 사용했다. 테스트를 위해 main.js 을 실행하면 된다. url 파싱중 유효하지 않은 토큰이 있다면 throw 처리했다.
+- url 을 파싱하기 위해 정규 표현식을 사용했다. 테스트를 위해 main.js 을 실행하면 된다. url 파싱중 유효하지 않은 토큰이 있다면 throw 처리했다.
 
-global, multi line 옵션을 적용했다. 이러면 group matching 을 할 수 있다. 그룹에 해당하는게 없다면 undefined 이다. 
+- global, multi line 옵션을 적용했다. 이러면 group matching 을 할 수 있다. 그룹에 해당하는게 없다면 undefined 이다. 
 
-참고 링크에 있는 프로그램을 사용했고 왼쪽에 보면 Code Generator 있다. 언어별로 사용가능하다.   
+- 참고 링크에 있는 프로그램을 사용했고 왼쪽에 보면 Code Generator 있다. 언어별로 사용가능하다.
 
-```javascript
-const regex = /^(([^:\/?#]+:)?(\/\/((([^\/?#:]*)?(?:\:([^\/?#:]*))?\@)?([^\/?#:]*)(?::([^\/?#:]*))?)))(([^?]*)(?:\?([^#]*))?)/gm;
-var matches = regex.exec(url);
-```
+- ```javascript
+  const regex = /^(([^:\/?#]+:)?(\/\/((([^\/?#:]*)?(?:\:([^\/?#:]*))?\@)?([^\/?#:]*)(?::([^\/?#:]*))?)))(([^?]*)(?:\?([^#]*))?)/gm;
+  var matches = regex.exec(url);
+  ```
+  - url 을 파싱할때 정규표현식을 사용하면 if, else 문의 지옥에서 벗어날수 있다. 간편하게 특수문자의 유무도 판단할 수 있고 '?' 연산자를 이용해 있을수도 있고 없을수도 있는 url 요소들를 간단하게 체크할수 있다.
 
-- url 을 파싱할때 정규표현식을 사용하면 if, else 문의 지옥에서 벗어날수 있다. 간편하게 특수문자의 유무도 판단할 수 있고 '?' 연산자를 이용해 있을수도 있고 없을수도 있는 url 요소들를 간단하게 체크할수 있다.
-
-- URL 구성 요소
+- #### URL 구성 요소
 
   - protocol(http:) : 웹 브라우저가 서버와 내용을 주고받을 때 사용할 규칙 이름이다. 보통 google.com 만 입력해도 잘 된다. 이때는 브라우저가 알아서 `http://`를 넣어줘서 잘되는 것이다. 
 
@@ -47,23 +46,25 @@ var matches = regex.exec(url);
 
     
 
-  ### HttpRequest.js
+### HttpRequest.js
 
-  - CRLF : The term CRLF refers to **C**arriage **R**eturn (ASCII 13, \r) **L**ine **F**eed (ASCII 10, \n). They're used to note the termination of a line, however, dealt with differently in today’s popular Operating Systems. For example: in Windows both a CR and LF are required to note the end of a line, whereas in Linux/UNIX a LF is only required. In the HTTP protocol, the CR-LF sequence is always used to terminate a line.
+- CRLF : The term CRLF refers to **C**arriage **R**eturn (ASCII 13, \r) **L**ine **F**eed (ASCII 10, \n). They're used to note the termination of a line, however, dealt with differently in today’s popular Operating Systems. For example: in Windows both a CR and LF are required to note the end of a line, whereas in Linux/UNIX a LF is only required. In the HTTP protocol, the CR-LF sequence is always used to terminate a line.
 
-  - 우리는 CRLF로 `\r\n\r\n`을 사용한다. 헤더와 바디를 구분할 수 있는 아주 중요한 키워드이다. 
+- 우리는 CRLF로 `\r\n\r\n`을 사용한다. 헤더와 바디를 구분할 수 있는 아주 중요한 키워드이다. 
 
-  - ```javascript
-    const CRLF = '\r\n\r\n';
-    ```
+- ```javascript
+  const CRLF = '\r\n\r\n';
+  ```
 
-  - HttpRequest객체는 host와 method 정보를 이용해 서버에 보낼 request message를 작성한다. 
+- HttpRequest객체는 host와 method 정보를 이용해 서버에 보낼 request message를 작성한다. 
 
-  - ```javascript
-    get msg(){
-            return `${this.method} / HTTP/1.1\r\nAccept: text/html\r\nHost: ${this.host}\r\nUser-Agent: Mozilla/5.0${CRLF}`;
-        }
-    ```
+- ```javascript
+  get msg(){
+          return `${this.method} / HTTP/1.1\r\nAccept: text/html\r\nHost: ${this.host}\r\nUser-Agent: Mozilla/5.0${CRLF}`;
+  }
+  ```
+
+
 
 ### HttpResponse.js
 
